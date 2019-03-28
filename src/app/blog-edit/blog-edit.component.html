@@ -1,0 +1,18 @@
+<div class="container">
+        <form [formGroup]="editForm" (ngSubmit)="update()">
+            <h5>Edit Blog</h5>
+            <div class="form-group">
+                <label for="editName">Name</label>
+                <input type="text" id="editName" class="form-control" [value]=" blog.user.name " formControlName="name">
+            </div>
+            <div class="form-group">
+                <label for="editEmail">Email</label>
+                <input type="text" id="editEmail" class="form-control" [value]=" blog.user.email " formControlName="email">
+            </div>
+            <div class="form-group">
+                <label for="editPassword">Password</label>
+                <input type="text" id="editPassword" class="form-control" [value]=" blog.user.password " formControlName="password">
+            </div>
+            <button class="btn btn-outline-primary" type="submit">Update</button>
+        </form>
+</div>
