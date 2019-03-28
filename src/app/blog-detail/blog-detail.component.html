@@ -6,7 +6,7 @@
         <div class="card-body">
             <h5 class="card-title">Name: {{blog.user.name}}</h5>
             <p class="card-text">Email: {{blog.user.email}}</p>
-            <a [routerLink]="['/list']" class="btn btn-primary">Back</a>
+            <button (click)="goBack()" class="btn btn-primary">Back</button>
         </div>
     </div>
 </div>

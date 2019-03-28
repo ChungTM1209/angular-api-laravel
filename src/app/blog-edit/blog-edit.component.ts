@@ -3,6 +3,7 @@ import {BlogInterface} from '../blog-interface';
 import {BlogService} from '../blog.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder} from '@angular/forms';
+import {Location} from '@angular/common';
 
 @Component({
     selector: 'app-blog-edit',
@@ -16,7 +17,8 @@ export class BlogEditComponent implements OnInit {
     constructor(private blogService: BlogService,
                 private route: ActivatedRoute,
                 private formBuilder: FormBuilder,
-                private router: Router) {
+                private router: Router,
+                private location: Location) {
     }
 
     editForm = this.formBuilder.group({
@@ -42,4 +44,7 @@ export class BlogEditComponent implements OnInit {
         return this.blogService.update(value, this.id).subscribe(() => (this.router.navigate(['../list'])));
     }
 
+    goBack(): void {
+        this.location.back();
+    }
 }

@@ -1,7 +1,7 @@
 <div class="container">
-    <div class="row">
-        <table class="table table-striped table-bordered text-center">
-            <thead>
+    <div class="row m-4">
+        <table class="table table-striped table-bordered">
+            <thead class="table-bordered text-center table-dark">
             <tr>
                 <th scope="col">STT</th>
                 <th scope="col">Name</th>
@@ -13,12 +13,12 @@
             </thead>
             <tbody>
             <tr *ngFor="let blog of blogList;index as i">
-                <td>{{i+1}}</td>
-                <td>{{blog.name}}</td>
+                <td class="text-center">{{i+1}}</td>
+                <td class="text-center">{{blog.name}}</td>
                 <td>{{blog.email}}</td>
-                <td><a class="btn btn-outline-info" [routerLink]="['/list',blog.id]">Show</a></td>
-                <td><a class="btn btn-info" [routerLink]="['/list/edit',blog.id]">Edit</a></td>
-                <td><a class="btn btn-danger" (click)="delete(blog.id)">Delete</a></td>
+                <td class="text-center"><a class="btn btn-outline-primary" [routerLink]="['/list',blog.id]">Show</a></td>
+                <td class="text-center"><a class="btn btn-outline-info" [routerLink]="['/list/edit',blog.id]">Edit</a></td>
+                <td class="text-center"><a class="btn btn-outline-danger" (click)="delete(blog.id)">Delete</a></td>
             </tr>
             </tbody>
         </table>

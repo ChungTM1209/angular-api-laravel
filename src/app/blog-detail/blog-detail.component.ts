@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {BlogService} from '../blog.service';
 import {ActivatedRoute, Route} from '@angular/router';
 import {BlogInterface} from '../blog-interface';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-blog-detail',
@@ -11,14 +12,18 @@ import {BlogInterface} from '../blog-interface';
 export class BlogDetailComponent implements OnInit {
   blog: BlogInterface;
   constructor(private blogService: BlogService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private location: Location) { }
 
   ngOnInit() {
     this.getBlogById();
   }
    getBlogById() {
      const id = + this.route.snapshot.paramMap.get('id');
-    // console.log(id);
      this.blogService.getBlogById(id).subscribe(next => (this.blog = next));
    }
+
+    goBack() {
+        this.location.back();
+    }
 }

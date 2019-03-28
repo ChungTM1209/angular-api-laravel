@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {BlogService} from '../blog.service';
 import {BlogInterface} from '../blog-interface';
 import {Router} from '@angular/router';
+import {BlogLists} from '../blog-lists';
 
 @Component({
     selector: 'app-blog',
@@ -9,7 +10,7 @@ import {Router} from '@angular/router';
     styleUrls: ['./blog.component.css']
 })
 export class BlogComponent implements OnInit {
-    blogList: BlogInterface[] = [];
+    blogList: BlogLists[] = [];
     blog: BlogInterface;
 
     constructor(private blogService: BlogService,

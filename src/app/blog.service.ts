@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {BlogInterface} from './blog-interface';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {BlogLists} from './blog-lists';
 
 @Injectable({
     providedIn: 'root'
@@ -11,8 +12,8 @@ export class BlogService {
     constructor(private httpClient: HttpClient) {
     }
 
-    getBlogs(): Observable<BlogInterface[]> {
-        return this.httpClient.get<BlogInterface[]>('/api/users');
+    getBlogs(): Observable<BlogLists[]> {
+        return this.httpClient.get<BlogLists[]>('/api/users');
     }
 
     getBlogById(id: number): Observable<BlogInterface> {
